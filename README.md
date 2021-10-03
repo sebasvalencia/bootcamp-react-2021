@@ -39,9 +39,72 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Project description
+Proyecto final:
+
+- Historial en git
+
+- Rutas:
+  - Lista de pokemones capturados
+  - Buscador(Pokedex)
+
+- Modal
+  - Detalle de pokemon
+    - Navegador para ir de un prokemón a otro sin necesidad de volver a vista anterior
+      - Adelante y atrás (useCallback)	
+
+- Hacer un **caché** para evitar rehacer la misma consulta al servidor
+- Pokedex
+  - Buscador
+    - Se cargan inicalmente 150 pokemons y se muestran
+      - <https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150>
+      - Mientras se carga la lista mostrar un spinner
+    - Input y botón para realizar la búsqueda
+      - Se realiza la busuqeda sobre los pokemones consultados incialmente 
+    - Mostrar resultados del seleccionado:
+      - Si hay resultados mostrar: 
+        - nombre,
+        - ` `imagen, 
+        - botón de captura, 
+        - ver detalles (Link al detalle del pokemón)
+        - Over style (borde, background color)
+      - Si no hay resultados mostrar un texto que indique “no results found”
+      - Si se limpia el input mostrar de nuevo todos
+
+- Lista de pokemones capturados
+  - **Usar context api para persisitir los pokemones capturados**
+  
+  - Mostrar los pokemones que capturé
+
+  - Se puede ir al detalle de cada uno a la vista
+
+  - El tipo de pokemón favorito determina un COLOR en la UI(borde, fondo)
+    - Este tipo se calcular analizando los tipos principales en mi lista y el que tenga mayor resultados determina
+    - Si hay varios con la misma cantidad se selecciona cualquier tipo
+    - **Conditional styles**
+
+  - Ordenar
+    - Por nombre
+    - Por tipo principal
+
+  - Se puede liberar desde ambos
+    - Vista de detalle
+    - Lista de pokemon
+
+- Unit testing (jest)
+
+- Integration RTL
+
+
+- Nice to have
+  - responsive
+
+
+
 
 ## Create Project
 
 ```sh
 npx create-react-app my-app
 ```
+
