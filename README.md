@@ -108,3 +108,14 @@ Proyecto final:
 npx create-react-app my-app
 ```
 
+## Install axios
+```sh
+npm i axios
+```
+
+## Install sass
+```sh
+npm install sass
+```
+
+
