@@ -6,7 +6,7 @@ const Modal = ( { handleClose, show, children }) => {
 
     const showHideClassName = show ? "modal display-block"  : "modal display-none"
 
-    console.log('showHideClassName: ', showHideClassName);
+    // console.log('showHideClassName: ', showHideClassName);
 
     return (
         <div className={showHideClassName}>
