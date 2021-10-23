@@ -1,3 +1,4 @@
+import Catch from '../../Icons/Catch.png'
 
 const PokemonModalDetail = ({pokemonData}) => {
 
@@ -5,6 +6,8 @@ const PokemonModalDetail = ({pokemonData}) => {
     const image = pokemonData.sprites.other.dream_world.front_default
     const abilities = pokemonData.abilities;
     
+    const catchPokemon = () => console.log('catch');
+
     return (
         <>
             <div className="pokemon-detail-modal-container">
@@ -30,6 +33,14 @@ const PokemonModalDetail = ({pokemonData}) => {
                     </div>
 
                 </div>
+
+                <div className="pokemon-catch-button">
+                <button  onClick={catchPokemon}>
+                    <img src={Catch} alt="" />
+                    <h3>Catch</h3>
+                </button>
+                </div>
+
             </div>
         </>
     )

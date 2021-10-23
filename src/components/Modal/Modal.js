@@ -2,14 +2,15 @@
 import './modal.scss';
 
 
-const Modal = ( { handleClose, show, children }) => {
+const Modal = ( { handleClose, show, children, pokemonName }) => {
 
     const showHideClassName = show ? "modal display-block"  : "modal display-none"
 
     return (
         <div className={showHideClassName}>
             <section className="modal-main">
-                <button type="button" onClick={handleClose} >Close</button>
+                {/* <div>{pokemonName}</div> */}
+                <button type="button" onClick={handleClose} >X</button>
                 {children}
             </section>
         </div>

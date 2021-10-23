@@ -5,6 +5,7 @@ import Modal from "../Modal/Modal";
 import PokemonModalDetail from "../PokemonModalDetail/PokemonModalDetail";
 import "./pokemonDetail.scss";
 import Details from '../../Icons/Details.png'
+import Catch from '../../Icons/Catch.png'
 
 const PokemonDetail = () => {
 
@@ -33,6 +34,8 @@ const PokemonDetail = () => {
 
   const handleOpenModal = () => setModalOnOff(!modalOnOff);
 
+  const catchPokemon = () => console.log('catch');
+
   if(isLoading) { return <div> Loading ... </div> };
 
   return (
@@ -53,10 +56,19 @@ const PokemonDetail = () => {
           <PokemonModalDetail pokemonData={pokemonData} />
         </Modal>
 
-        <button  onClick={handleOpenModal}>
-          <img src={Details} alt="" />
-          <h3>Details</h3>
-        </button>
+        <div>
+
+          <button  onClick={handleOpenModal}>
+            <img src={Details} alt="" />
+            <h3>Details</h3>
+          </button>
+
+          <button  onClick={catchPokemon}>
+            <img src={Catch} alt="" />
+            <h3>Catch</h3>
+          </button>
+
+        </div>
     </>
   );
 };

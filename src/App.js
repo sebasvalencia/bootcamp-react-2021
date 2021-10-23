@@ -1,18 +1,17 @@
-// import logo from './logo.svg';
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useContext } from "react";
 import axios from "axios";
 import "./App.css";
 
-import Modal from "./components/Modal/Modal";
 import PokemonList from "./components/PokemonList/PokemonList";
 import PokemonDetail from "./components/PokemonDetail/PokemonDetail";
+import PokemonSearch from  "./components/PokemonSearch/PokemonSearch";
 
 import PokemonProvider from "./context/pokemonContext/provider";
 import { PokemonContext } from "./context/pokemonContext/context";
 import PokemonContextActions from "./context/pokemonContext/actions";
-import { UserContext } from "./context/userContext/context";
-import UserContextActions from "./context/userContext/actions";
-import UserProvider from "./context/userContext/provider";
+// import { UserContext } from "./context/userContext/context";
+// import UserContextActions from "./context/userContext/actions";
+// import UserProvider from "./context/userContext/provider";
 
 // const AddUsers = () => {
 //   const { state, dispatch } = useContext(UserContext);
@@ -111,16 +110,25 @@ import UserProvider from "./context/userContext/provider";
 //   );
 // };
 
-const ShowPokemons = () => {
+const GetAndSetPokemons = () => {
   const { dispatch } = useContext(PokemonContext);
 
   useEffect( () => {
     const getData = async () => {
       const {data} = await axios.get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150");
+      console.log('data.results[0]', data.results[0]);
       dispatch({
-        type: PokemonContextActions.getPokemons,
+        type: PokemonContextActions.setPokemons,
         results: data.results,
       })
+      dispatch({
+        type: PokemonContextActions.setFilterPokemons,
+        results:  data.results
+    })
+  //   dispatch({
+  //     type: PokemonContextActions.setSelectedPokemon,
+  //     results: data.results[0]
+  // })
     };
     getData();
   }, [] );
@@ -129,12 +137,7 @@ const ShowPokemons = () => {
 }
 
 const App = () => {
-  console.log("App");
-
-  const [modalOnOff, setModalOnOff] = useState(false);
-  //Turns out that the inline function is necessary to set the state after the component has rendered. This ensures that the new state we're passing to setToggle as an argument is actually applied to the component itself.
-  const handleOpenModal = () => setModalOnOff(!modalOnOff);
-
+  
   return (
     <>
       {/* <UserProvider>
@@ -142,15 +145,13 @@ const App = () => {
         <ShowUsers />
         <CleanUsers />
       </UserProvider> */}
-        <Modal handleClose={handleOpenModal} show={modalOnOff}>
-          <PokemonDetail />
-        </Modal>
-        <button onClick={handleOpenModal}>
-          <h3>Details</h3>
-        </button>
+        
       <PokemonProvider>
+        <GetAndSetPokemons />
+        <PokemonSearch />
         <PokemonList />
-        <ShowPokemons />
+        <PokemonDetail />
+
       </PokemonProvider>
     </>
   );
@@ -176,21 +177,5 @@ const App = () => {
   //   </>
   // );
 };
-
-// function App() {
-//   return (
-//     <div className="App">
-//       {/* <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-
-//       </header> */}
-
-//       <div className="App-main">
-
-//       </div>
-
-//     </div>
-//   );
-// }
 
 export default App;
