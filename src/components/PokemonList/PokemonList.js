@@ -6,7 +6,7 @@ import "./pokemonList.scss";
 const PokemonList = () => {
 
     const {dispatch, state: {filterPokemons}} = useContext(PokemonContext);
-
+    
     const openInformationPokemon = (pokemon) => {
         dispatch({
             type: PokemonContextActions.setSelectedPokemon,
