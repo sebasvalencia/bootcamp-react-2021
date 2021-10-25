@@ -5,7 +5,7 @@ import "./App.css";
 import PokemonList from "./components/PokemonList/PokemonList";
 import PokemonDetail from "./components/PokemonDetail/PokemonDetail";
 import PokemonSearch from  "./components/PokemonSearch/PokemonSearch";
-import PokemonCatchList from "./components/PokemonCatchList/PokemonCatchList";
+import PokemonCatchHome from "./components/PokemonCatchHome/PokemonCatchHome";
 
 import PokemonProvider from "./context/pokemonContext/provider";
 import { PokemonContext } from "./context/pokemonContext/context";
@@ -13,6 +13,7 @@ import PokemonContextActions from "./context/pokemonContext/actions";
 import { Route, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import PokemonHome from "./components/PokemonHome/PokemonHome";
+import PokemonCatchProvider from "./context/pokemonCatchContext/provider";
 
 const App = () => {
   
@@ -20,8 +21,10 @@ const App = () => {
     <>
       <BrowserRouter>
             <Switch>
+            <Route exact path="/" render={ (props)=> <PokemonProvider> <PokemonHome  /> </PokemonProvider> } />  
             <Route exact path="/home" render={ (props)=> <PokemonProvider> <PokemonHome  /> </PokemonProvider> } />
-            <Route exact path="/catch" render={ (props)=> <PokemonProvider> <PokemonCatchList  /> </PokemonProvider> } />
+            <Route exact path="/catch" render={ (props)=> <PokemonProvider> <PokemonCatchHome  /> </PokemonProvider> } />
+            {/* <Route exact path="/catch" render={ (props)=> <PokemonCatchProvider> <PokemonCatchHome  /> </PokemonCatchProvider> } /> */}
             </Switch>
       </BrowserRouter>
     </>
