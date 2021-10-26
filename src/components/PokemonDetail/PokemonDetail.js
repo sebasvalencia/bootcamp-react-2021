@@ -6,12 +6,11 @@ import PokemonModalDetail from "../PokemonModalDetail/PokemonModalDetail";
 import "./pokemonDetail.scss";
 import Details from '../../Icons/Details.png'
 import Catch from '../../Icons/Catch.png'
+import PokemonContextActions from "../../context/pokemonContext/actions";
 
 const PokemonDetail = () => {
 
-  // const details = './../Icons/Details.png'
-
-  const {
+  const { dispatch,
     state: { selectedPokemon },
   } = useContext(PokemonContext);
 
@@ -34,7 +33,13 @@ const PokemonDetail = () => {
 
   const handleOpenModal = () => setModalOnOff(!modalOnOff);
 
-  const catchPokemon = () => console.log('catch');
+  const catchPokemon = () => {
+    console.log('catch')
+    dispatch({
+      type: PokemonContextActions.catchPokemons,
+      results: selectedPokemon
+    })
+  };
 
   if(isLoading) { return <div> Loading ... </div> };
 

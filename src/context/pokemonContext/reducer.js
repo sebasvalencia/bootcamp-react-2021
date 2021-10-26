@@ -19,12 +19,17 @@ const pokemonReducer = (state, action) => {
       };
 
       // catch
-    //   case PokemonContextActions.setSelectedPokemon:
-    //     console.log("action", action);
-    //     return {
-    //       ...state,
-    //       selectedPokemon: [...state.selectedPokemon, action.results],
-    //     };
+      case PokemonContextActions.catchPokemons:
+        return {
+          ...state,
+          catchedPokemons: [...state.catchedPokemons, action.results],
+        };
+      case PokemonContextActions.setFilterCatchedPokemons:
+        console.log("action", action);
+        return {
+          ...state,
+          filterCatchedPokemons: [...action.results],
+        };
 
     default:
       return { ...state };

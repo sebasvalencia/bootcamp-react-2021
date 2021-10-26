@@ -20,9 +20,9 @@ const App = () => {
             <Route exact path="/home">
               <PokemonHome />
             </Route>
-            <Route exact path="/catch">
+            {/* <Route exact path="/catch">
               <PokemonCatchHome />
-            </Route>
+            </Route> */}
           </PokemonProvider>
         </Switch>
       </BrowserRouter>

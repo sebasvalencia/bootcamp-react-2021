@@ -9,37 +9,7 @@ import Home from "../../Icons/Home.png";
 import { useHistory } from "react-router";
 import axios from "axios";
 
-const GetAndSetPokemons = () => {
-  const { dispatch } = useContext(PokemonContext);
-
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios.get(
-        "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150"
-      );
-      console.log("data.results[0]", data.results[0]);
-      dispatch({
-        type: PokemonContextActions.setPokemons,
-        results: data.results,
-      });
-      dispatch({
-        type: PokemonContextActions.setFilterPokemons,
-        results: data.results,
-      });
-      dispatch({
-        type: PokemonContextActions.setSelectedPokemon,
-        results: data.results[0],
-      });
-    };
-    getData();
-  }, []);
-
-  return <></>;
-};
-
 const PokemonHome = () => {
-  const { dispatch, state: { pokemons }, } = useContext(PokemonContext);
-  console.log("pokemonList", pokemons);
 
   const history = useHistory();
 
@@ -49,15 +19,12 @@ const PokemonHome = () => {
 
   return (
     <>
-      <PokemonProvider>
-        <GetAndSetPokemons />
-        <PokemonSearch />
         <button onClick={handleClick}>
           <img src={Home} alt="" />
         </button>
+        <PokemonSearch />
         <PokemonList />
         <PokemonDetail />
-      </PokemonProvider>
     </>
   );
 };
