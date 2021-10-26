@@ -1,35 +1,37 @@
-import { useEffect, useContext } from "react";
-import axios from "axios";
-import "./App.css";
-
-import PokemonList from "./components/PokemonList/PokemonList";
-import PokemonDetail from "./components/PokemonDetail/PokemonDetail";
-import PokemonSearch from  "./components/PokemonSearch/PokemonSearch";
-import PokemonCatchHome from "./components/PokemonCatchHome/PokemonCatchHome";
-
-import PokemonProvider from "./context/pokemonContext/provider";
-import { PokemonContext } from "./context/pokemonContext/context";
-import PokemonContextActions from "./context/pokemonContext/actions";
 import { Route, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
+
+import PokemonProvider from "./context/pokemonContext/provider";
+
+import PokemonCatchHome from "./components/PokemonCatchHome/PokemonCatchHome";
 import PokemonHome from "./components/PokemonHome/PokemonHome";
-import PokemonCatchProvider from "./context/pokemonCatchContext/provider";
+
+import "./App.css";
 
 const App = () => {
-  
   return (
     <>
       <BrowserRouter>
-            <Switch>
-            <Route exact path="/" render={ (props)=> <PokemonProvider> <PokemonHome  /> </PokemonProvider> } />  
-            <Route exact path="/home" render={ (props)=> <PokemonProvider> <PokemonHome  /> </PokemonProvider> } />
-            <Route exact path="/catch" render={ (props)=> <PokemonProvider> <PokemonCatchHome  /> </PokemonProvider> } />
-            {/* <Route exact path="/catch" render={ (props)=> <PokemonCatchProvider> <PokemonCatchHome  /> </PokemonCatchProvider> } /> */}
-            </Switch>
+        <Switch>
+          <Route exact path="/">
+            <PokemonProvider>
+              <PokemonHome />
+            </PokemonProvider>
+          </Route>
+          <Route exact path="/home">
+            <PokemonProvider>
+              <PokemonHome />
+            </PokemonProvider>
+          </Route>
+          <Route exact path="/catch">
+            <PokemonProvider>
+              <PokemonCatchHome />
+            </PokemonProvider>
+          </Route>
+        </Switch>
       </BrowserRouter>
     </>
   );
-
 
   // return (
   //   <>
@@ -38,7 +40,7 @@ const App = () => {
   //       <ShowUsers />
   //       <CleanUsers />
   //     </UserProvider> */}
-        
+
   //     <PokemonProvider>
   //       <GetAndSetPokemons />
   //       <PokemonSearch />
