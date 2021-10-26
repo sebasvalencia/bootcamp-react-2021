@@ -13,21 +13,17 @@ const App = () => {
     <>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/">
-            <PokemonProvider>
+          <PokemonProvider>
+            <Route exact path="/">
               <PokemonHome />
-            </PokemonProvider>
-          </Route>
-          <Route exact path="/home">
-            <PokemonProvider>
+            </Route>
+            <Route exact path="/home">
               <PokemonHome />
-            </PokemonProvider>
-          </Route>
-          <Route exact path="/catch">
-            <PokemonProvider>
+            </Route>
+            <Route exact path="/catch">
               <PokemonCatchHome />
-            </PokemonProvider>
-          </Route>
+            </Route>
+          </PokemonProvider>
         </Switch>
       </BrowserRouter>
     </>
