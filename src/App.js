@@ -20,58 +20,15 @@ const App = () => {
             <Route exact path="/home">
               <PokemonHome />
             </Route>
-            {/* <Route exact path="/catch">
+            <Route exact path="/catch">
               <PokemonCatchHome />
-            </Route> */}
+            </Route>
           </PokemonProvider>
         </Switch>
       </BrowserRouter>
     </>
   );
 
-  // return (
-  //   <>
-  //     {/* <UserProvider>
-  //       <AddUsers />
-  //       <ShowUsers />
-  //       <CleanUsers />
-  //     </UserProvider> */}
-
-  //     <PokemonProvider>
-  //       <GetAndSetPokemons />
-  //       <PokemonSearch />
-
-  //       <button >
-  //           <img src={Home} alt="" />
-  //           </button>
-
-  //       <PokemonList />
-  //       <PokemonDetail />
-
-  //     </PokemonProvider>
-  //   </>
-  // );
-
-  // const { loading, data: pokemonList } = useRequest(
-  //   "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150"
-  // );
-
-  // const photo = pokemonList;
-
-  // console.log('photo: ', photo);
-
-  // return (
-  //   <>
-  //     {loading && <h1>Loading...</h1>}
-  //     <ul>
-  //       {pokemonList.map(({ name, url }) => (
-  //         <li key={name}>
-  //           {name} --- {url}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   </>
-  // );
 };
 
 export default App;
