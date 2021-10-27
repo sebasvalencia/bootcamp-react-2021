@@ -1,22 +1,37 @@
-import { useHistory } from "react-router";
-import Home from "../../Icons/Home.png";
+import { useContext } from "react";
+import PokemonContextActions from "../../context/pokemonContext/actions";
+import { PokemonContext } from "../../context/pokemonContext/context";
 
 const PokemonCatchList = () => {
 
-    const history = useHistory()
+    const {dispatch, state: {catchedPokemons}} = useContext(PokemonContext);
 
-    const handleReturnHome = () => {
-        history.push('/home');
+    // console.log('filterCatchedPokemons', catchedPokemons);
+
+    const openInformationPokemon = (pokemon) => {
+        dispatch({
+            type: PokemonContextActions.setSelectedCatchPokemon,
+            results: pokemon
+        })
     }
 
-
     return (
-        <>
-            <div>PokemonCatchList</div>
-            <button onClick={handleReturnHome}><img src={Home} alt="" /></button>
-        </>
+        <div className="pokemon-list">
+            <ul className="ul-list">
+                {
+                    catchedPokemons.length >=1 ?
+                    catchedPokemons.map( (pokemon, i) => 
+                    <li key={i} 
+                    onClick={() => openInformationPokemon(pokemon)}
+                    >{pokemon.name}</li> 
+                    ) :
+                    <div>
+                        no results found
+                    </div>
+                }
+            </ul>
+        </div>
     )
-
 }
 
 export default PokemonCatchList;

@@ -1,13 +1,8 @@
 import PokemonDetail from "../PokemonDetail/PokemonDetail";
 import PokemonList from "../PokemonList/PokemonList";
 import PokemonSearch from "../PokemonSearch/PokemonSearch";
-import { useContext, useEffect } from "react";
-import PokemonContextActions from "../../context/pokemonContext/actions";
-import { PokemonContext } from "../../context/pokemonContext/context";
-import PokemonProvider from "../../context/pokemonContext/provider";
 import Home from "../../Icons/Home.png";
 import { useHistory } from "react-router";
-import axios from "axios";
 
 const PokemonHome = () => {
 

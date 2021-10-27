@@ -5,12 +5,8 @@ const initialState= {
     filterPokemons: [],
     catchedPokemons: [],
     filterCatchedPokemons: [],
-    selectedPokemon: []
-    
-    // {
-    //     "name": "caterpie",
-    //     "url": "https://pokeapi.co/api/v2/pokemon/10/"
-    // }
+    selectedPokemon: [],
+    selectedCatchPokemon: []
 };
 
 const PokemonContext = createContext(initialState);

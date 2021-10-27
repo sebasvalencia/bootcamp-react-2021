@@ -17,19 +17,28 @@ const pokemonReducer = (state, action) => {
         ...state,
         selectedPokemon: action.results,
       };
-
-      // catch
-      case PokemonContextActions.catchPokemons:
-        return {
-          ...state,
-          catchedPokemons: [...state.catchedPokemons, action.results],
-        };
-      case PokemonContextActions.setFilterCatchedPokemons:
-        console.log("action", action);
-        return {
-          ...state,
-          filterCatchedPokemons: [...action.results],
-        };
+    case PokemonContextActions.catchPokemons:
+      return {
+        ...state,
+        catchedPokemons: [...state.catchedPokemons, action.results],
+      };
+    case PokemonContextActions.setFilterCatchedPokemons:
+      return {
+        ...state,
+        filterCatchedPokemons: [...action.results],
+      };
+    case PokemonContextActions.setSelectedCatchPokemon:
+      return {
+        ...state,
+        selectedCatchPokemon: action.results,
+      };
+    case PokemonContextActions.releaseCatchPokemon:
+      return {
+        ...state,
+        catchedPokemons: [
+          ...state.catchedPokemons.filter((pokemon) => pokemon !== action.results),
+        ],
+      };
 
     default:
       return { ...state };

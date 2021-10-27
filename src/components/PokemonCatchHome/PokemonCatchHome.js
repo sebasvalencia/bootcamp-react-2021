@@ -1,41 +1,28 @@
-import { useContext } from "react";
+
 import { useHistory } from "react-router";
-import { PokemonCatchContext } from "../../context/pokemonCatchContext/context";
-import PokemonCatchProvider from "../../context/pokemonCatchContext/provider";
-import PokemonProvider from "../../context/pokemonContext/provider";
 import Home from "../../Icons/Home.png";
+import PokemonCatchDetail from "../PokemonCatchDetail/PokemonCatchDetail";
 import PokemonCatchList from "../PokemonCatchList/PokemonCatchList";
 
-
 const PokemonCatchHome = () => {
+  const history = useHistory();
 
-    // const { dispatch, state: { setPokemonsCatch }, } = useContext(PokemonCatchContext);
-    // console.log('setPokemonsCatch', setPokemonsCatch);
+  const handleReturnHome = () => {
+    history.push("/home");
+  };
 
-    const history = useHistory()
+  return (
+    <>
+      <div>PokemonCatchList</div>
+      <button onClick={handleReturnHome}>
+        <img src={Home} alt="" />
+        h2
+      </button>
 
-    const handleReturnHome = () => {
-        history.push('/home');
-    }
-
-    return (
-        <>
-        <PokemonProvider>
-
-        {/* <PokemonCatchProvider> */}
-
-            <div>PokemonCatchList</div>
-            <button onClick={handleReturnHome}><img src={Home} alt="" /></button>
-            <PokemonCatchList />
-
-        {/* </PokemonCatchProvider> */}
-
-        </PokemonProvider>
-        </>
-    )
-
-
-}
-
+      <PokemonCatchList />
+      <PokemonCatchDetail />
+    </>
+  );
+};
 
 export default PokemonCatchHome;
