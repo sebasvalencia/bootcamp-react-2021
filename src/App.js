@@ -11,24 +11,23 @@ import "./App.css";
 const App = () => {
   return (
     <>
-      <BrowserRouter>
-        <Switch>
-          <PokemonProvider>
-            <Route exact path="/">
-              <PokemonHome />
-            </Route>
-            <Route exact path="/home">
-              <PokemonHome />
-            </Route>
-            <Route exact path="/catch">
-              <PokemonCatchHome />
-            </Route>
-          </PokemonProvider>
-        </Switch>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Switch>
+            <PokemonProvider>
+              <Route exact path="/">
+                <PokemonHome  />
+              </Route>
+              <Route exact path="/home">
+                <PokemonHome />
+              </Route>
+              <Route exact path="/catch">
+                <PokemonCatchHome />
+              </Route>
+            </PokemonProvider>
+          </Switch>
+        </BrowserRouter>
     </>
   );
-
 };
 
 export default App;

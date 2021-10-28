@@ -5,7 +5,7 @@ const initialState= {
     filterPokemons: [],
     catchedPokemons: [],
     filterCatchedPokemons: [],
-    selectedPokemon: [],
+    selectedPokemon: {},
     selectedCatchPokemon: []
 };
 

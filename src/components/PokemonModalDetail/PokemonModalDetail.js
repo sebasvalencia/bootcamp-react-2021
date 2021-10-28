@@ -1,11 +1,7 @@
 import Catch from '../../Icons/Catch.png'
 
-const PokemonModalDetail = ({pokemonData}) => {
+const PokemonModalDetail = ({image, name, abilities}) => {
 
-    const name =  pokemonData.name;
-    const image = pokemonData.sprites.other.dream_world.front_default
-    const abilities = pokemonData.abilities;
-    
     const catchPokemon = () => console.log('catch');
 
     return (
@@ -16,22 +12,19 @@ const PokemonModalDetail = ({pokemonData}) => {
                 </div> 
                 <div>
                     <div>
-                        <img src={image} alt={name} />
+                        <img src={image} alt={image} />
                     </div>
 
                     <div>
                         Abilities
                         <ul>
                             {
-                                abilities.map( (abilitiyObject, i) => (
-                                    <li key={i}>{abilitiyObject.ability.name}</li>
-
-                                )
+                                abilities.map( (abilitiyObject, i) => 
+                                    <li key={i}>{abilitiyObject.ability.name}</li>                                
                                 )
                             }
                         </ul>
                     </div>
-
                 </div>
 
                 <div className="pokemon-catch-button">
@@ -44,7 +37,6 @@ const PokemonModalDetail = ({pokemonData}) => {
             </div>
         </>
     )
-
 }
 
 export default PokemonModalDetail;

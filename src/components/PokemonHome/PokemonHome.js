@@ -1,4 +1,3 @@
-import PokemonDetail from "../PokemonDetail/PokemonDetail";
 import PokemonList from "../PokemonList/PokemonList";
 import PokemonSearch from "../PokemonSearch/PokemonSearch";
 import Home from "../../Icons/Home.png";
@@ -19,7 +18,7 @@ const PokemonHome = () => {
         </button>
         <PokemonSearch />
         <PokemonList />
-        <PokemonDetail />
+        
     </>
   );
 };

@@ -7,58 +7,43 @@ import "./pokemonDetail.scss";
 import Details from '../../Icons/Details.png'
 import Catch from '../../Icons/Catch.png'
 import PokemonContextActions from "../../context/pokemonContext/actions";
-
+import _ from "lodash";
 const PokemonDetail = () => {
 
-  const [pokemonData, setPokemonData] = useState({});
-  const [isLoading, setLoading] = useState(true);
+  // const [isLoading, setLoading] = useState(true);
   const [modalOnOff, setModalOnOff] = useState(false);
+  const [image, setImage] = useState('');
+  const [name, setName] = useState('');
+  const [abilities, setAbilities] = useState([]);
+  
 
-  const { dispatch,
-    state: { selectedPokemon },
+  const { dispatch, state:{selectedPokemon}
   } = useContext(PokemonContext);
 
-  console.log('selectedPokemon', selectedPokemon);
-
-
-    useEffect(() => {
-      // try {
+  useEffect(() => {
+      try {
+        if( !_.isEmpty(selectedPokemon) ){
           const getPokemonData = async () => {
             const { data } = await axios.get(selectedPokemon.url);
-            
-  
-  
-  
-            console.log("data", data);
-            setPokemonData(data);
-            setLoading(false);
+            setName(data.name)
+            setImage(data.sprites.other.dream_world.front_default)
+            setAbilities(data.abilities)
           };
-      
           getPokemonData();
-
-        
-
-        
-      // } catch (error) {
-      //   console.log('PokemonDetail error: ', error);
-      //   setPokemonData([{
-      //     name: '',
-      //   }
-      //   ]);
-      // }
-  
-    }, [selectedPokemon.url]);
+        }
 
 
- 
+      } catch (error) {
+      }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[selectedPokemon]);
 
   const handleOpenModal = () => setModalOnOff(!modalOnOff);
 
   const catchPokemon = () => {
-    // console.log('catch', selectedPokemon)
     dispatch({
       type: PokemonContextActions.catchPokemons,
-      results: selectedPokemon
+      results: selectedPokemon //selectedPokemon
     })
   //   dispatch({
   //     type: PokemonContextActions.setFilterCatchedPokemons,
@@ -66,17 +51,18 @@ const PokemonDetail = () => {
   // })
   };
 
-  if(isLoading) { return <div> Loading ... </div> };
+  // if(isLoading ) { return <div> Loading ... </div> };
 
   return (
     <>
       <button > {'<'} </button>
-      <div> {pokemonData.name} </div>
+      <div> {name} </div>
+      <div>  </div>
       <button > {'>'} </button>
       <div>
         <img
-          // src={pokemonData.sprites.other.dream_world.front_default}
-          src={''}
+          // src={''}
+          src={image}
           alt=""
           width="200px"
           height="200px"
@@ -84,7 +70,7 @@ const PokemonDetail = () => {
       </div>
 
       <Modal handleClose={handleOpenModal} show={modalOnOff}>
-          <PokemonModalDetail pokemonData={pokemonData} />
+          <PokemonModalDetail image={image} name={name} abilities={abilities}/>
         </Modal>
 
         <div>
