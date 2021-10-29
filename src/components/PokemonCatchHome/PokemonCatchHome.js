@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import Home from "../../Icons/Home.png";
 import PokemonCatchDetail from "../PokemonCatchDetail/PokemonCatchDetail";
 import PokemonCatchList from "../PokemonCatchList/PokemonCatchList";
+import PokemonSearch from "../PokemonSearch/PokemonSearch";
 
 const PokemonCatchHome = () => {
   const history = useHistory();
@@ -13,14 +14,13 @@ const PokemonCatchHome = () => {
 
   return (
     <>
-      <div>PokemonCatchList</div>
       <button onClick={handleReturnHome}>
         <img src={Home} alt="" />
-        h2
       </button>
 
+      {/* <PokemonSearch /> */}
       <PokemonCatchList />
-      <PokemonCatchDetail />
+      
     </>
   );
 };

@@ -7,8 +7,15 @@ import "./pokemonDetail.scss";
 import Details from '../../Icons/Details.png'
 import Release from '../../Icons/Release.png'
 import PokemonContextActions from "../../context/pokemonContext/actions";
+import _ from "lodash";
 
 const PokemonCatchDetail = () => {
+
+  // const [isLoading, setLoading] = useState(true);
+  const [modalOnOff, setModalOnOff] = useState(false);
+  const [image, setImage] = useState('');
+  const [name, setName] = useState('');
+  const [abilities, setAbilities] = useState([]);
 
   const { dispatch,
     state: { selectedCatchPokemon },
@@ -18,26 +25,19 @@ const PokemonCatchDetail = () => {
 
     useEffect(() => {
       try {
-        const getPokemonData = async () => {
-          const { data } = await axios.get(selectedCatchPokemon.url);
-          console.log("data", data);
-          setPokemonData(data);
-          setLoading(false);
-        };
-    
-        getPokemonData();
-        
+        if( !_.isEmpty(selectedCatchPokemon) ){
+          const getPokemonData = async () => {
+            const { data } = await axios.get(selectedCatchPokemon.url);
+            setName(data.name)
+            setImage(data.sprites.other.dream_world.front_default)
+            setAbilities(data.abilities)
+          };
+          getPokemonData();
+        }
       } catch (error) {
-        console.log('PokemonCatchDetail error: ', error);
-        setPokemonData([]);
       }
-  
-    }, [selectedCatchPokemon.url]);
-
-
-  const [pokemonData, setPokemonData] = useState({});
-  const [isLoading, setLoading] = useState(true);
-  const [modalOnOff, setModalOnOff] = useState(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [selectedCatchPokemon]);
 
   const handleOpenModal = () => setModalOnOff(!modalOnOff);
 
@@ -53,16 +53,16 @@ const PokemonCatchDetail = () => {
   // })
   };
 
-  if(isLoading) { return <div> Loading ... </div> };
+  // if(isLoading) { return <div> Loading ... </div> };
 
   return (
     <>
       <button > {'<'} </button>
-      <div> {pokemonData.name} </div>
+      <div> {name} </div>
       <button > {'>'} </button>
       <div>
         <img
-          src={pokemonData.sprites.other.dream_world.front_default}
+          src={image}
           alt=""
           width="200px"
           height="200px"
@@ -70,8 +70,8 @@ const PokemonCatchDetail = () => {
       </div>
 
       <Modal handleClose={handleOpenModal} show={modalOnOff}>
-          <PokemonModalDetail pokemonData={pokemonData} />
-        </Modal>
+          <PokemonModalDetail image={image} name={name} abilities={abilities} />
+      </Modal>
 
         <div>
           <button  onClick={releasePokemon}>
