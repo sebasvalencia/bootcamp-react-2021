@@ -41,14 +41,11 @@ const PokemonDetail = () => {
   const handleOpenModal = () => setModalOnOff(!modalOnOff);
 
   const catchPokemon = () => {
+    console.log('catchPokemon');
     dispatch({
       type: PokemonContextActions.catchPokemons,
-      results: selectedPokemon //selectedPokemon
-    })
-  //   dispatch({
-  //     type: PokemonContextActions.setFilterCatchedPokemons,
-  //     results: selectedPokemon
-  // })
+      results: selectedPokemon
+    });
   };
 
   // if(isLoading ) { return <div> Loading ... </div> };

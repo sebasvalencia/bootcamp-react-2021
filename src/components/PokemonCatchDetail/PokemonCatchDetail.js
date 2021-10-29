@@ -47,10 +47,7 @@ const PokemonCatchDetail = () => {
       type: PokemonContextActions.releaseCatchPokemon,
       results: selectedCatchPokemon
     })
-  //   dispatch({
-  //     type: PokemonContextActions.setFilterCatchedPokemons,
-  //     results: []
-  // })
+
   };
 
   // if(isLoading) { return <div> Loading ... </div> };
