@@ -1,8 +1,7 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import PokemonContextActions from "../../context/pokemonContext/actions";
 import { PokemonContext } from "../../context/pokemonContext/context";
 import PokemonCatchDetail from "../PokemonCatchDetail/PokemonCatchDetail";
-import _ from "lodash";
 
 const PokemonCatchList = () => {
 
@@ -19,18 +18,12 @@ const PokemonCatchList = () => {
           const results = catchedPokemons.filter((user) => {
             return user.name.toLowerCase().startsWith(keyword.toLowerCase());
           });
-
-          console.log('res', results);
           setFilterCatchedPokemons(results);
-          
         } else {
-            console.log('else', catchedPokemons);
-            setFilterCatchedPokemons(catchedPokemons);
+          setFilterCatchedPokemons(catchedPokemons);
         }    
         setPokemonName(keyword);
     }
-
-
 
     const openInformationPokemon = (pokemon) => {
         dispatch({

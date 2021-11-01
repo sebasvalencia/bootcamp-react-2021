@@ -15,9 +15,9 @@ const PokemonDetail = () => {
   const [image, setImage] = useState('');
   const [name, setName] = useState('');
   const [abilities, setAbilities] = useState([]);
-  
+  const [color, setColor] = useState('');
 
-  const { dispatch, state:{selectedPokemon}
+  const { dispatch, state:{selectedPokemon, filterPokemons}
   } = useContext(PokemonContext);
 
   useEffect(() => {
@@ -28,6 +28,16 @@ const PokemonDetail = () => {
             setName(data.name)
             setImage(data.sprites.other.dream_world.front_default)
             setAbilities(data.abilities)
+
+            const speciesColor = data.species.url
+            const dataColor = await axios.get(speciesColor);
+            setColor(dataColor.data.color.name)
+
+            // const speciesColor = data.species.url
+            // // console.log(speciesColor);
+            // const dataColor = await axios.get(speciesColor);
+            // // console.log('dataColor', dataColor.data.color.name);
+            // setColor(dataColor.data.color.name)
           };
           getPokemonData();
         }
@@ -48,14 +58,31 @@ const PokemonDetail = () => {
     });
   };
 
+  const handlePrev = (e) => {
+    e.preventDefault();
+    const index = _.findIndex(filterPokemons, selectedPokemon)
+    dispatch({
+      type: PokemonContextActions.setSelectedPokemon,
+      results: filterPokemons[index-1]
+    });
+  }
+  const handlerNext = (e) => {
+    e.preventDefault();
+    const index = _.findIndex(filterPokemons, selectedPokemon)
+    dispatch({
+      type: PokemonContextActions.setSelectedPokemon,
+      results: filterPokemons[index+1]
+    });
+  };
+
   // if(isLoading ) { return <div> Loading ... </div> };
 
   return (
     <>
-      <button > {'<'} </button>
-      <div> {name} </div>
+      <button onClick={handlePrev} > {'<'} </button>
+      <div style={{backgroundColor:color}}> {name} </div>
       <div>  </div>
-      <button > {'>'} </button>
+      <button onClick={handlerNext}> {'>'} </button>
       <div>
         <img
           // src={''}

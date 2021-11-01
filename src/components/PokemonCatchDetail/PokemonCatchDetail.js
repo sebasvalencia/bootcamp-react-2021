@@ -16,12 +16,12 @@ const PokemonCatchDetail = () => {
   const [image, setImage] = useState('');
   const [name, setName] = useState('');
   const [abilities, setAbilities] = useState([]);
-
+  const [color, setColor] = useState('');
+  
   const { dispatch,
-    state: { selectedCatchPokemon },
+    state: { selectedCatchPokemon , catchedPokemons},
   } = useContext(PokemonContext);
 
-  console.log('selectedPokemon', selectedCatchPokemon);
 
     useEffect(() => {
       try {
@@ -31,6 +31,10 @@ const PokemonCatchDetail = () => {
             setName(data.name)
             setImage(data.sprites.other.dream_world.front_default)
             setAbilities(data.abilities)
+
+            const speciesColor = data.species.url
+            const dataColor = await axios.get(speciesColor);
+            setColor(dataColor.data.color.name)
           };
           getPokemonData();
         }
@@ -47,16 +51,34 @@ const PokemonCatchDetail = () => {
       type: PokemonContextActions.releaseCatchPokemon,
       results: selectedCatchPokemon
     })
-
+    
   };
+
+  const handlePrev = (e) => {
+    e.preventDefault();
+    const index = _.findIndex(catchedPokemons, selectedCatchPokemon)
+    dispatch({
+      type: PokemonContextActions.setSelectedCatchPokemon,
+      results: catchedPokemons[index-1]
+    });
+  }
+  const handlerNext = (e) => {
+    e.preventDefault();
+    const index = _.findIndex(catchedPokemons, selectedCatchPokemon)
+    dispatch({
+      type: PokemonContextActions.setSelectedCatchPokemon,
+      results: catchedPokemons[index+1]
+    });
+  };
+
 
   // if(isLoading) { return <div> Loading ... </div> };
 
   return (
     <>
-      <button > {'<'} </button>
-      <div> {name} </div>
-      <button > {'>'} </button>
+      <button onClick={handlePrev}> {'<'} </button>
+      <div style={{backgroundColor:color}}> {name} </div>
+      <button onClick={handlerNext}> {'>'} </button>
       <div>
         <img
           src={image}
