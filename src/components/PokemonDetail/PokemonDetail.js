@@ -16,6 +16,7 @@ const PokemonDetail = () => {
   const [name, setName] = useState('');
   const [abilities, setAbilities] = useState([]);
   const [color, setColor] = useState('');
+  const [pokemon, setPokemon] = useState([])
 
   const { dispatch, state:{selectedPokemon, filterPokemons}
   } = useContext(PokemonContext);
@@ -32,6 +33,8 @@ const PokemonDetail = () => {
             const speciesColor = data.species.url
             const dataColor = await axios.get(speciesColor);
             setColor(dataColor.data.color.name)
+
+            setPokemon(selectedPokemon)
 
             // const speciesColor = data.species.url
             // // console.log(speciesColor);
@@ -51,7 +54,7 @@ const PokemonDetail = () => {
   const handleOpenModal = () => setModalOnOff(!modalOnOff);
 
   const catchPokemon = () => {
-    console.log('catchPokemon');
+    console.log('catchPokemon PokemonDetail', selectedPokemon);
     dispatch({
       type: PokemonContextActions.catchPokemons,
       results: selectedPokemon
@@ -94,7 +97,7 @@ const PokemonDetail = () => {
       </div>
 
       <Modal handleClose={handleOpenModal} show={modalOnOff}>
-          <PokemonModalDetail image={image} name={name} abilities={abilities}/>
+          <PokemonModalDetail image={image} name={name} abilities={abilities} pokemon={pokemon} isCatchPage={false}/>
         </Modal>
 
         <div>

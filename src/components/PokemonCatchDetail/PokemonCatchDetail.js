@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { PokemonContext } from "../../context/pokemonContext/context";
 import Modal from "../Modal/Modal";
 import PokemonModalDetail from "../PokemonModalDetail/PokemonModalDetail";
-import "./pokemonDetail.scss";
+import "./pokemonCatchDetail.scss";
 import Details from '../../Icons/Details.png'
 import Release from '../../Icons/Release.png'
 import PokemonContextActions from "../../context/pokemonContext/actions";
@@ -17,7 +17,8 @@ const PokemonCatchDetail = () => {
   const [name, setName] = useState('');
   const [abilities, setAbilities] = useState([]);
   const [color, setColor] = useState('');
-  
+  const [pokemon, setPokemon] = useState([])
+
   const { dispatch,
     state: { selectedCatchPokemon , catchedPokemons},
   } = useContext(PokemonContext);
@@ -34,7 +35,10 @@ const PokemonCatchDetail = () => {
 
             const speciesColor = data.species.url
             const dataColor = await axios.get(speciesColor);
-            setColor(dataColor.data.color.name)
+            setColor(dataColor.data.color.name);
+
+            setPokemon(selectedCatchPokemon);
+
           };
           getPokemonData();
         }
@@ -46,12 +50,11 @@ const PokemonCatchDetail = () => {
   const handleOpenModal = () => setModalOnOff(!modalOnOff);
 
   const releasePokemon = () => {
-    console.log('catch', selectedCatchPokemon)
+    console.log('catch PokemonCatchDetail', selectedCatchPokemon)
     dispatch({
       type: PokemonContextActions.releaseCatchPokemon,
       results: selectedCatchPokemon
     })
-    
   };
 
   const handlePrev = (e) => {
@@ -89,7 +92,7 @@ const PokemonCatchDetail = () => {
       </div>
 
       <Modal handleClose={handleOpenModal} show={modalOnOff}>
-          <PokemonModalDetail image={image} name={name} abilities={abilities} />
+          <PokemonModalDetail image={image} name={name} abilities={abilities} pokemon={pokemon} isCatchPage={true}/>
       </Modal>
 
         <div>

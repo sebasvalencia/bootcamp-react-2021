@@ -1,8 +1,28 @@
+import { useContext } from 'react';
+import PokemonContextActions from '../../context/pokemonContext/actions';
+import { PokemonContext } from '../../context/pokemonContext/context';
 import Catch from '../../Icons/Catch.png'
+import Release from '../../Icons/Release.png'
 
-const PokemonModalDetail = ({image, name, abilities}) => {
+const PokemonModalDetail = ({image, name, abilities, pokemon, isCatchPage}) => {
 
-    const catchPokemon = () => console.log('catch');
+    const { dispatch } = useContext(PokemonContext);
+
+    const catchPokemon = () => {
+        console.log('catchPokemon PokemonModalDetail', pokemon);
+        dispatch({
+          type: PokemonContextActions.catchPokemons,
+          results: pokemon
+        });
+      };
+    
+    const releasePokemon = () => {
+    console.log('relasePokemon PokemonModalDetail', pokemon)
+    dispatch({
+        type: PokemonContextActions.releaseCatchPokemon,
+        results: pokemon
+    })
+    };
 
     return (
         <>
@@ -27,11 +47,26 @@ const PokemonModalDetail = ({image, name, abilities}) => {
                     </div>
                 </div>
 
+                
                 <div className="pokemon-catch-button">
-                <button  onClick={catchPokemon}>
-                    <img src={Catch} alt="" />
-                    <h3>Catch</h3>
-                </button>
+                {
+                    isCatchPage
+                    ?  
+                    <button  onClick={releasePokemon}>
+                        <img src={Release} alt="" />
+                        <h3>Release</h3>
+                    </button>
+                    :
+                    <button  onClick={catchPokemon}>
+                        <img src={Catch} alt="" />
+                        <h3>Catch</h3>
+                    </button> 
+                }
+               
+
+
+                
+
                 </div>
 
             </div>
