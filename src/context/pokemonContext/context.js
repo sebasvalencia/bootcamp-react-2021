@@ -6,7 +6,8 @@ const initialState= {
     catchedPokemons: [],
     filterCatchedPokemons: [],
     selectedPokemon: {},
-    selectedCatchPokemon: []
+    selectedCatchPokemon: [],
+    resultCatchedPokemonSearch: true,
 };
 
 const PokemonContext = createContext(initialState);

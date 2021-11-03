@@ -1,4 +1,5 @@
 import PokemonContextActions from "./actions";
+import _ from "lodash";
 
 const pokemonReducer = (state, action) => {
   switch (action.type) {
@@ -27,6 +28,16 @@ const pokemonReducer = (state, action) => {
         ...state,
         selectedCatchPokemon: action.results,
       };
+    case PokemonContextActions.setOrderByNameCatchedPokemon:
+      return {
+        ...state,
+        catchedPokemons: [...action.results]
+      }
+    case PokemonContextActions.setResultCatchedPokemonSearch:
+      return {
+        ...state,
+        resultCatchedPokemonSearch: action.results
+      }
     case PokemonContextActions.releaseCatchPokemon:
       return {
         ...state,
