@@ -1,0 +1,56 @@
+.pokemon-detail-modal-container {
+  border: 1px solid salmon;
+  display: grid; 
+  grid-auto-flow: column; 
+  grid-auto-columns: 1fr; 
+  grid-auto-rows: 1fr; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 0.2fr 1.8fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "title title title"
+    "img abilities btn-action"; 
+
+}
+
+.pokemon-detail-modal-header {
+  height: 50px;
+  width: 280%;
+  border: 2px solid fuchsia;
+  background-color: aquamarine;
+  border-radius: 15px;
+}
+
+.pokemon-detail-modal-title {
+  font-size: 30px;
+  text-align: center;
+  grid-area: title;
+}
+
+.pokemon-detail-modal-content{
+    background-color: antiquewhite;
+}
+
+.pokemon-detail-image {
+  border: 10px solid gray;
+  grid-area: img;
+}
+
+.pokemon-detail-abilities {
+  grid-area: abilities;
+  border: 1px solid rebeccapurple;
+  margin: auto;
+}
+
+.pokemon-detail-button {
+  grid-area: btn-action;
+}
+
+.pokemon-detail-list{
+}
+
+.pokemon-detail-button-release {
+}
+
+.pokemon-detail-button-catch {
+}

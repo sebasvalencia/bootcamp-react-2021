@@ -7,7 +7,7 @@ import PokemonDetail from "../PokemonDetail/PokemonDetail";
 
 const PokemonList = () => {
 
-  const [pokemon, setPokemon] = useState();
+  // const [pokemon, setPokemon] = useState();
 
   const {
     dispatch,
@@ -15,7 +15,7 @@ const PokemonList = () => {
   } = useContext(PokemonContext);
 
   const openInformationPokemon = (pokemon) => {
-    setPokemon(pokemon);
+    // setPokemon(pokemon);
     dispatch({
       type: PokemonContextActions.setSelectedPokemon,
       results: pokemon,

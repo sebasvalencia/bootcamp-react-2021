@@ -1,4 +1,4 @@
-import './globalSpinner.css'
+import './globalSpinner.scss'
 
 const GlobalSpinner = props => {
   return (

@@ -12,7 +12,6 @@ const PokemonProvider = ( {children} ) => {
             const { data } = await axios.get(
                 "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150"
               );
-              console.log("data.results[0]", data.results[0]);
               dispatch({
                 type: PokemonContextActions.setPokemons,
                 results: data.results,
