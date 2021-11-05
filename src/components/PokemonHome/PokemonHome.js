@@ -1,24 +1,33 @@
+import { useHistory } from "react-router";
+import "./pokemonHome.scss";
+import Home from "../../Icons/Home.png";
 import PokemonList from "../PokemonList/PokemonList";
 import PokemonSearch from "../PokemonSearch/PokemonSearch";
-import Home from "../../Icons/Home.png";
-import { useHistory } from "react-router";
 
 const PokemonHome = () => {
-
   const history = useHistory();
 
-  const handleClick = () => {
+  const handleGotoCatchListClick = () => {
     history.push("/catch");
   };
 
   return (
     <>
-        <button onClick={handleClick}>
-          <img src={Home} alt="" />
-        </button>
-        <PokemonSearch />
-        <PokemonList />
-        
+      <div className="pokemon-home-container">
+        <div className="pokemon-home-search">
+          <PokemonSearch />
+        </div>
+
+        <div className="pokemon-home-catch-list-button">
+          <button className="pokemon-home-catch-button" onClick={handleGotoCatchListClick}>
+            <img className="pokemon-home-catch-image" src={Home} alt="catch-list" />
+          </button>
+        </div>
+
+        <div className="pokemon-home-list">
+          <PokemonList />
+          </div>
+      </div>
     </>
   );
 };
