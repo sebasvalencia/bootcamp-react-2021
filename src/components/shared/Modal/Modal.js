@@ -4,7 +4,7 @@ import './modal.scss';
 
 const Modal = ( { handleClose, show, children, color }) => {
 
-    const showHideClassName = show ? "modal display-block"  : "modal display-none"
+    const showHideClassName = show ? "modal display-block"  : "modal display-none";
 
     const styles = { backgroundColor: ` ${color}` };
     const buttonStyles = { color:  `${color}`};

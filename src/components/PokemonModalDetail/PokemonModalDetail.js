@@ -1,21 +1,22 @@
 import { useContext } from "react";
-import PokemonContextActions from "../../context/pokemonContext/actions";
-import { PokemonContext } from "../../context/pokemonContext/context";
+import "./pokemonModalDetail.scss";
 import Catch from "../../Icons/Catch.png";
 import Release from "../../Icons/Release.png";
-import "./pokemonModalDetail.scss";
+import PokemonContextActions from "../../context/pokemonContext/actions";
+import { PokemonContext } from "../../context/pokemonContext/context";
 
 const PokemonModalDetail = ({
+  handleClose,
   image,
   name,
   abilities,
   pokemon,
   isCatchPage,
 }) => {
+
   const { dispatch } = useContext(PokemonContext);
 
   const catchPokemon = () => {
-    console.log("catchPokemon PokemonModalDetail", pokemon);
     dispatch({
       type: PokemonContextActions.catchPokemons,
       results: pokemon,
@@ -23,11 +24,11 @@ const PokemonModalDetail = ({
   };
 
   const releasePokemon = () => {
-    console.log("relasePokemon PokemonModalDetail", pokemon);
     dispatch({
       type: PokemonContextActions.releaseCatchPokemon,
       results: pokemon,
     });
+    handleClose()
   };
 
   return (
@@ -52,7 +53,6 @@ const PokemonModalDetail = ({
                 ))}
                 </ul>
             </div>
-            
 
             <div>
             {isCatchPage ? (
