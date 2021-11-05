@@ -87,7 +87,7 @@ const PokemonCatchDetail = () => {
             <img src={image} alt="" width="200px" height="200px"></img>
           </div>
 
-          <Modal handleClose={handleOpenModal} show={modalOnOff}>
+          <Modal handleClose={handleOpenModal} show={modalOnOff} color={color}>
             <PokemonModalDetail image={image} name={name} abilities={abilities}
               pokemon={pokemon}
               isCatchPage={true}

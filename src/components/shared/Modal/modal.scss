@@ -5,7 +5,6 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
-  
 }
 
 .modal-main {
@@ -16,6 +15,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  margin-top: 15px;
+  margin-right: 12px;
 }
 
 .display-block {
@@ -26,13 +27,16 @@
   display: none;
 }
 
-
 .close-button {
   position: absolute;
   right: 10px;
   top: 5px;
   width: 50px;
   height: 50px;
-  font-size:30px;
+  font-size: 30px;
   background: white;
+  margin-top: 11px;
+  margin-right: 17px;
+  border-radius: 15px;
+  border: none;
 }

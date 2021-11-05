@@ -39,12 +39,14 @@ const PokemonModalDetail = ({
         
         <div className="pokemon-detail-modal-content">
             <div className="pokemon-detail-image">
-                <img src={image} alt={image} />
+                <div className="pokemon-detail-background-poke-image">
+                  <img className="pokemon-detail-poke-image" src={image} alt={image} />
+                </div>
             </div>
 
             <div className="pokemon-detail-abilities">
-                Abilities
-                <ul className="pokemon-detail-list">
+                <p >Abilities</p>
+                <ul>
                 {abilities.map((abilitiyObject, i) => (
                     <li key={i}>{abilitiyObject.ability.name}</li>
                 ))}
@@ -52,20 +54,20 @@ const PokemonModalDetail = ({
             </div>
             
 
-            <div className="pokemon-detail-button">
+            <div>
             {isCatchPage ? (
                 <div className="pokemon-detail-button-release">
-                <button className onClick={releasePokemon}>
-                    <img src={Release} alt="" />
+                <button className="pokemon-detail-button" onClick={releasePokemon}>
+                    <img className="pokemon-detail-button-image" src={Release} alt="release" />
                 </button>
-                <h3>Release</h3>
+                <p className="pokemon-detail-button-title">Release</p>
                 </div>
             ) : (
                 <div className="pokemon-detail-button-catch">
-                <button onClick={catchPokemon}>
-                    <img src={Catch} alt="" />
+                <button className="pokemon-detail-button" onClick={catchPokemon}>
+                    <img className="pokemon-detail-button-image" src={Catch} alt="catch" />
                 </button>
-                <h3>Catch</h3>
+                <p className="pokemon-detail-button-title">Catch</p>
                 </div>
             )}
             </div>
