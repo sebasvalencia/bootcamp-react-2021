@@ -1,6 +1,115 @@
+.container-detail {
+  border: 1px solid magenta;
+  width: -webkit-fill-available;
+  background-color: aliceblue;
+  border-radius: 15px;
+  margin-right: 22px;
+  margin-left: 22px;
+}
 
+.pokemon-detail-header {
+  height: 50px;
+  width: 267px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  background-color: aquamarine;
+  border-radius: 15px;
+}
 
-.container-detail{
-    border: 1px solid magenta;
+.pokemon-detail-button-right {
+  float: right;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: transparent;
+}
 
+.pokemon-detail-button-left {
+  float: left;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: transparent;
+}
+
+.pokemon-detail-name {
+  text-align: center;
+  width: 100px;
+  float: left;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 24px;
+  padding-top: 12px;
+  font-size: 16px;
+}
+
+.pokemon-detail-span-arrow {
+  font-size: 25px;
+}
+
+.pokemon-detail-container-content {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.pokemon-detail-background-poke-images {
+  background-color: #cbcbcb;
+  margin-top: 50px;
+  margin-left: 20px;
+  border-radius: 15px;
+}
+
+.pokemon-detail-poke-images {
+  width: 268px;
+  height: 336px;
+  margin-left: 24px;
+}
+
+.pokemon-detail-image {
+  width: 350px;
+}
+
+.pokemon-detail-image {
+  width: 400px;
+  height: 400px;
+}
+
+.pokemon-detail-buttonss {
+  display: flex;
+  height: fit-content;
+  margin-top: auto;
+  margin-left: auto;
+  cursor: pointer;
+  margin-right: 25px;
+}
+
+.pokemon-detail-button-releases {
+  text-align: center;
+  margin-right: 24px;
+}
+
+.pokemon-detail-button-catchs {
+  text-align: center;
+}
+
+.pokemon-detail-buttons {
+  width: 70px;
+  height: 70px;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  background-color: #cbcbcb;
+}
+
+.pokemon-detail-button-images {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.pokemon-detail-button-titles {
+  margin-top: 0;
 }

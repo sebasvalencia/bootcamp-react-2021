@@ -10,7 +10,7 @@ import PokemonModalDetail from "../PokemonModalDetail/PokemonModalDetail";
 import PokemonContextActions from "../../context/pokemonContext/actions";
 import GlobalSpinner from "../shared/GlobalSpinner/GlobalSpinner";
 
-const PokemonDetail = () => {
+const PokemonDetail = (params) => {
   const [isLoading, setLoading] = useState(true);
   const [modalOnOff, setModalOnOff] = useState(false);
   const [image, setImage] = useState("");
@@ -38,6 +38,7 @@ const PokemonDetail = () => {
           setColor(dataColor.data.color.name);
           setPokemon(selectedPokemon);
           setLoading(false);
+          params.setColorBackground(dataColor.data.color.name);
         };
         getPokemonData();
       }
@@ -72,23 +73,47 @@ const PokemonDetail = () => {
     });
   };
 
+  const styles = { border:  `5px solid ${color}`};
+  const stylesArrows = {color: `${color}`};
+
+
   return (
     <>
       {isLoading ? (
         <GlobalSpinner />
       ) : (
         <div className="container-detail" >
-          <button onClick={handlePrev}> {"<"} </button>
-          <div style={{ backgroundColor: color }}> {name} </div>
-          <div> </div>
-          <button onClick={handlerNext}> {">"} </button>
-          <div>
-            <img
-              src={image}
-              alt=""
-              width="200px"
-              height="200px"
-            ></img>
+          
+          <div className="pokemon-detail-header" style={styles}>
+            <button className="pokemon-detail-button-left" onClick={handlePrev}><span className="pokemon-detail-span-arrow" style={stylesArrows}>{"<"}</span></button>
+            <p className="pokemon-detail-name" > {name} </p>
+            <button className="pokemon-detail-button-right" onClick={handlerNext}><span className="pokemon-detail-span-arrow" style={stylesArrows}>{">"}</span></button>
+          </div>
+
+          <div className="pokemon-detail-container-content">
+            <div className="pokemon-detail-images">
+              <div className="pokemon-detail-background-poke-images">
+                <img className="pokemon-detail-poke-images" src={image} alt={name}  />
+              </div>
+            </div>
+
+            <div className="pokemon-detail-buttonss">
+
+              <div className="pokemon-detail-button-releases">
+                <button className="pokemon-detail-buttons" onClick={handleOpenModal}>
+                  <img className="pokemon-detail-button-images" src={Details} alt="Details" />
+                </button>
+                <p  className="pokemon-detail-button-titles">Details</p>
+              </div>
+
+              <div className="pokemon-detail-button-catchs">
+                <button className="pokemon-detail-buttons" onClick={catchPokemon}>
+                  <img className="pokemon-detail-button-images" src={Catch} alt="Catch" />
+                </button>
+                <p  className="pokemon-detail-button-titles">Catch</p>
+              </div>
+            </div>
+
           </div>
 
           <Modal handleClose={handleOpenModal} show={modalOnOff} color={color}>
@@ -98,17 +123,7 @@ const PokemonDetail = () => {
             />
           </Modal>
 
-          <div>
-            <button onClick={handleOpenModal}>
-              <img src={Details} alt="" />
-              <h3>Details</h3>
-            </button>
-
-            <button onClick={catchPokemon}>
-              <img src={Catch} alt="" />
-              <h3>Catch</h3>
-            </button>
-          </div>
+          
         </div>
       )}
     </>

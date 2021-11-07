@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useHistory } from "react-router";
 import "./pokemonHome.scss";
 import Home from "../../Icons/Home.png";
@@ -5,6 +6,8 @@ import PokemonList from "../PokemonList/PokemonList";
 import PokemonSearch from "../PokemonSearch/PokemonSearch";
 
 const PokemonHome = () => {
+
+  const [colorBackground, setColorBackground] = useState('');
   const history = useHistory();
 
   const handleGotoCatchListClick = () => {
@@ -13,7 +16,7 @@ const PokemonHome = () => {
 
   return (
     <>
-      <div className="pokemon-home-container">
+      <div className="pokemon-home-container"  style={{ backgroundColor: colorBackground }}>
         <div className="pokemon-home-search">
           <PokemonSearch />
         </div>
@@ -25,8 +28,8 @@ const PokemonHome = () => {
         </div>
 
         <div className="pokemon-home-list">
-          <PokemonList />
-          </div>
+          <PokemonList setColorBackground={setColorBackground} />
+        </div>
       </div>
     </>
   );
