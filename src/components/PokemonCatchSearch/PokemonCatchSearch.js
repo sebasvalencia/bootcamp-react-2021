@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { useContext } from "react";
+import "./pokemonCatchSearch.scss";
 import PokemonContextActions from '../../context/pokemonContext/actions';
 import { PokemonContext } from "../../context/pokemonContext/context";
 
@@ -44,8 +45,7 @@ const PokemonCatchSearch = () => {
         type="search"
         value={value}
         onChange={filter}
-        className="input"
-        placeholder="Filter"
+        className="pokemon-catch-input-search"
       />
         </>
     )

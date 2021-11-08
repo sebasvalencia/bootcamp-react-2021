@@ -1,8 +1,10 @@
-import { useContext, useEffect, useState } from "react";
-import { PokemonContext } from "../../context/pokemonContext/context";
+import { useContext, useEffect, useRef, useState } from "react";
 import _ from "lodash";
-import PokemonContextActions from "../../context/pokemonContext/actions";
 import axios from "axios";
+import "./pokemonOrder.scss";
+import { PokemonContext } from "../../context/pokemonContext/context";
+import PokemonContextActions from "../../context/pokemonContext/actions";
+import ButtonFilter from "../shared/ButtonFilter/ButtonFilter";
 
 const PokemonOrder = () => {
   const [items] = useState([
@@ -11,6 +13,8 @@ const PokemonOrder = () => {
   ]);
   const [value, setValue] = useState("tipo");
   const [pokemonsAndTypes, setPokemonsAndTypes] = useState({});
+  const [open, setOpen] = useState(false);
+  const drop = useRef(null);
 
   const {
     dispatch,
@@ -52,7 +56,9 @@ const PokemonOrder = () => {
   };
 
   const orderByName = () => {
-    const orderCatchedPokemons = _.sortBy(catchedPokemons, (cp) => cp.name, [ "asc", ]);
+    const orderCatchedPokemons = _.sortBy(catchedPokemons, (cp) => cp.name, [
+      "asc",
+    ]);
 
     dispatch({
       type: PokemonContextActions.setOrderByNameCatchedPokemon,
@@ -85,13 +91,23 @@ const PokemonOrder = () => {
 
   return (
     <>
-      <select value={value} onChange={order}>
-        {items.map((item) => (
-          <option key={item.value} value={item.value}>
-            {item.label}
-          </option>
-        ))}
-      </select>
+      <div
+        className="pokemon-order-button-open-filter"
+        ref={drop}
+      >
+        <ButtonFilter onClick={() => setOpen((open) => !open)} />
+        {
+         open && (
+          <select value={value} onChange={order} className="pokemon-order-select-button">
+            {items.map((item) => (
+              <option className="pokemon-order-item" key={item.value} value={item.value}>
+                {item.label}
+              </option>
+            ))}
+          </select>
+         )
+        }
+      </div>
     </>
   );
 };
