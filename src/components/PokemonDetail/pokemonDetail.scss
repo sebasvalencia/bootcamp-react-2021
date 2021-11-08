@@ -1,17 +1,20 @@
 .container-detail {
-  border: 1px solid magenta;
+  //border: 1px solid magenta;
   width: -webkit-fill-available;
   background-color: aliceblue;
   border-radius: 15px;
   margin-right: 22px;
   margin-left: 22px;
+  margin-top: 25px;
+  height: 95%;
+  padding-top: 20px;
 }
 
 .pokemon-detail-header {
   height: 50px;
   width: 267px;
   margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 120px;
   margin-bottom: 20px;
   background-color: aquamarine;
   border-radius: 15px;
@@ -22,6 +25,7 @@
   width: 50px;
   height: 50px;
   border: none;
+  cursor: pointer;
   background-color: transparent;
 }
 
@@ -30,6 +34,7 @@
   width: 50px;
   height: 50px;
   border: none;
+  cursor: pointer;
   background-color: transparent;
 }
 
@@ -40,8 +45,8 @@
   margin-top: 0;
   margin-bottom: 0;
   margin-left: 24px;
-  padding-top: 12px;
-  font-size: 16px;
+  padding-top: 3px;
+  font-size: 30px;
 }
 
 .pokemon-detail-span-arrow {
@@ -50,7 +55,7 @@
 
 .pokemon-detail-container-content {
   width: 100%;
-  height: 400px;
+  height: 86%;
   display: flex;
   margin-bottom: 15px;
 }
@@ -63,8 +68,8 @@
 }
 
 .pokemon-detail-poke-images {
-  width: 268px;
-  height: 336px;
+  width: 500px;
+  height: 500px;
   margin-left: 24px;
 }
 

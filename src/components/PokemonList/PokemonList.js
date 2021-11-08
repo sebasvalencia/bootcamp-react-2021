@@ -5,8 +5,7 @@ import "./pokemonList.scss";
 // import axios from "axios";
 import PokemonDetail from "../PokemonDetail/PokemonDetail";
 
-const PokemonList = () => {
-
+const PokemonList = (params) => {
   // const [pokemon, setPokemon] = useState();
 
   const {
@@ -23,23 +22,25 @@ const PokemonList = () => {
   };
 
   return (
-    <> 
-    <div className="pokemon-list">
-      <ul className="ul-list">
-        {filterPokemons.length >= 1 ? (
-          filterPokemons.map((pokemon, i) => (
-            <li key={i} onClick={() => openInformationPokemon(pokemon)}>
-              {pokemon.name}
-            </li>
-          ))
-        ) : (
-          <div>no results found</div>
-        )}
-      </ul>
-
-    </div>
-      <PokemonDetail />
-    
+    <>
+      <div className="pokemon-wrapper-list">
+        <div className="pokemon-list">
+          <ul className="pokemon-list-ul">
+            {filterPokemons.length >= 1 ? (
+              filterPokemons.map((pokemon, i) => (
+                <li key={i} onClick={() => openInformationPokemon(pokemon)}>
+                  {pokemon.name}
+                </li>
+              ))
+            ) : (
+              <div>no results found</div>
+            )}
+          </ul>
+        </div>
+        <div className="pokemon-detail">
+          <PokemonDetail setColorBackground={params.setColorBackground} />
+        </div>
+      </div>
     </>
   );
 };
