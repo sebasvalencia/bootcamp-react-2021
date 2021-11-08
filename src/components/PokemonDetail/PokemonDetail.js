@@ -99,6 +99,13 @@ const PokemonDetail = (params) => {
 
             <div className="pokemon-detail-buttonss">
 
+              <div className="pokemon-detail-button-catchs">
+                <button className="pokemon-detail-buttons" onClick={catchPokemon}>
+                  <img className="pokemon-detail-button-images" src={Catch} alt="Catch" />
+                </button>
+                <p  className="pokemon-detail-button-titles">Catch</p>
+              </div>
+
               <div className="pokemon-detail-button-releases">
                 <button className="pokemon-detail-buttons" onClick={handleOpenModal}>
                   <img className="pokemon-detail-button-images" src={Details} alt="Details" />
@@ -106,12 +113,6 @@ const PokemonDetail = (params) => {
                 <p  className="pokemon-detail-button-titles">Details</p>
               </div>
 
-              <div className="pokemon-detail-button-catchs">
-                <button className="pokemon-detail-buttons" onClick={catchPokemon}>
-                  <img className="pokemon-detail-button-images" src={Catch} alt="Catch" />
-                </button>
-                <p  className="pokemon-detail-button-titles">Catch</p>
-              </div>
             </div>
 
           </div>
