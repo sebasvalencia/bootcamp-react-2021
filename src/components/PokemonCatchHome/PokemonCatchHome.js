@@ -18,11 +18,9 @@ const PokemonCatchHome = () => {
   return (
     <>
       <div className="pokemon-home-catch-container"  style={{ backgroundColor: colorBackground }}>
-        
         <div className="pokemon-home-catch-order">
           <PokemonOrder />
         </div>
-        
         
         <div className="pokemon-catch-search">
           <PokemonCatchSearch />
@@ -34,11 +32,9 @@ const PokemonCatchHome = () => {
           </button>
         </div>
 
-
-        <div className="pokemon-catch-list">
-          <PokemonCatchList />
+        <div className="pokemon-home-catch-lists">
+          <PokemonCatchList setColorBackground={setColorBackground} />
         </div>
-
       </div>
       
     </>

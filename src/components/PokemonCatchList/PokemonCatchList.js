@@ -2,8 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import PokemonContextActions from "../../context/pokemonContext/actions";
 import { PokemonContext } from "../../context/pokemonContext/context";
 import PokemonCatchDetail from "../PokemonCatchDetail/PokemonCatchDetail";
+import "./pokemonCatchList.scss";
 
-const PokemonCatchList = () => {
+const PokemonCatchList = (params) => {
 
     const {dispatch, state: {catchedPokemons, resultCatchedPokemonSearch}} = useContext(PokemonContext);
     const [pokemonName, setPokemonName] = useState('');
@@ -26,8 +27,9 @@ const PokemonCatchList = () => {
 
     return (
         <>
-            <div className="pokemon-list">
-                <ul className="ul-list">
+        <div className="pokemon-catch-wrapper-list">
+            <div className="pokemon-catch-lists">
+                <ul className="pokemon-catch-list-ul">
                     {
                         // filterCatchedPokemons.length >=1  ?
                         resultCatchedPokemonSearch  ?
@@ -42,7 +44,11 @@ const PokemonCatchList = () => {
                     }
                 </ul>
             </div>
-            <PokemonCatchDetail />
+            <div className="pokemon-catch-detail">
+                <PokemonCatchDetail setColorBackground={params.setColorBackground} />
+            </div>
+
+        </div>
         </>
     )
 }

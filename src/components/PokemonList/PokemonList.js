@@ -1,8 +1,7 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
+import "./pokemonList.scss";
 import PokemonContextActions from "../../context/pokemonContext/actions";
 import { PokemonContext } from "../../context/pokemonContext/context";
-import "./pokemonList.scss";
-// import axios from "axios";
 import PokemonDetail from "../PokemonDetail/PokemonDetail";
 
 const PokemonList = (params) => {

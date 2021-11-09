@@ -1,4 +1,122 @@
+.container-catch-detail {
+  border: 1px solid magenta;
+  //width: -webkit-fill-available;
+  background-color: aliceblue;
+  border-radius: 15px;
+  margin-right: 22px;
+  margin-left: 22px;
+  margin-top: 25px;
+  //height: 95%;
+  padding-top: 20px;
+}
 
-.pokemonDetailContainer {
-    // border: 1px solid magenta;
+.pokemon-catch-detail-header {
+  height: 50px;
+  width: 267px;
+  margin-top: 20px;
+  margin-left: 120px;
+  margin-bottom: 20px;
+  background-color: aquamarine;
+  border-radius: 15px;
+}
+
+.pokemon-catch-detail-button-right {
+  float: right;
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.pokemon-catch-detail-button-left {
+  float: left;
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.pokemon-catch-detail-name {
+  text-align: center;
+  width: 100px;
+  float: left;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 24px;
+  padding-top: 3px;
+  font-size: 30px;
+}
+
+.pokemon-catch-detail-span-arrow {
+  font-size: 25px;
+}
+
+.pokemon-catch-detail-container-content {
+  // width: 100%;
+  // height: 86%;
+  // display: flex;
+  // margin-bottom: 15px;
+  margin-bottom: 32px;
+}
+
+.pokemon-catch-detail-images {
+  width: 100%;
+  height: 86%;
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.pokemon-catch-detail-background-poke-images {
+  background-color: #cbcbcb;
+  margin-top: 50px;
+  margin-left: 20px;
+  border-radius: 15px;
+}
+
+.pokemon-catch-detail-poke-images {
+  width: 500px;
+  height: 500px;
+  margin-left: 24px;
+}
+
+
+.pokemon-catch-detail-buttonss {
+  display: flex;
+  height: fit-content;
+  margin-top: auto;
+  margin-left: auto;
+  cursor: pointer;
+  margin-right: 25px;
+  margin-left: 85%;
+}
+
+.pokemon-catch-detail-button-releases {
+  text-align: center;
+  margin-right: 15px;
+}
+
+.pokemon-catch-detail-button-details {
+  text-align: center;
+  margin-right: 24px;
+}
+
+.pokemon-catch-detail-buttons {
+  width: 70px;
+  height: 70px;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  background-color: #cbcbcb;
+}
+
+.pokemon-catch-detail-button-images {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.pokemon-catch-detail-button-titles {
+  margin-top: 0;
 }
