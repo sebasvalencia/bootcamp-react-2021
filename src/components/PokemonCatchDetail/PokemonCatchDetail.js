@@ -52,6 +52,8 @@ const PokemonCatchDetail = (params) => {
 
   const releasePokemon = () => {
     console.log("catch PokemonCatchDetail", selectedCatchPokemon);
+    // setName("")
+    
     dispatch({
       type: PokemonContextActions.releaseCatchPokemon,
       results: selectedCatchPokemon,
@@ -83,6 +85,14 @@ const PokemonCatchDetail = (params) => {
       {isLoading ? (
         <GlobalSpinner />
       ) : (
+        
+          // name === "" ? 
+          // <div className="not-found-data">
+          // no results found
+          // </div> 
+          
+          // :
+        
         <div className="container-catch-detail">
 
           <div className="pokemon-catch-detail-header" style={styles}>

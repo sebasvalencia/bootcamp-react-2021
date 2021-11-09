@@ -32,6 +32,12 @@ const pokemonReducer = (state, action) => {
         ...state,
         catchedPokemons: [...action.results]
       }
+    case PokemonContextActions.setCatchFilterPokemons:
+      console.log('action', action);
+      return {
+        ...state,
+        catchedPokemons: [...action.results],
+      };
     case PokemonContextActions.setResultCatchedPokemonSearch:
       return {
         ...state,

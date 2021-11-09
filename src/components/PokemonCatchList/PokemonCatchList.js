@@ -6,14 +6,17 @@ import "./pokemonCatchList.scss";
 
 const PokemonCatchList = (params) => {
 
-    const {dispatch, state: {catchedPokemons, resultCatchedPokemonSearch}} = useContext(PokemonContext);
+    const {dispatch, state: {catchedPokemons, resultCatchedPokemonSearch, filterCatchedPokemons}} = useContext(PokemonContext);
     const [pokemonName, setPokemonName] = useState('');
-    const [filterCatchedPokemons, setFilterCatchedPokemons] = useState([]);
+    const [filterCatchedPokemonss, setFilterCatchedPokemonss] = useState([]);
         
+    console.log('resultCatchedPokemonSearch', resultCatchedPokemonSearch);
+    console.log('catchedPokemons', catchedPokemons);
+    console.log('filterCatchedPokemons', filterCatchedPokemons);
+
     useEffect( () => {
         
-        setFilterCatchedPokemons(catchedPokemons)
-        console.log('filterCatchedPokemons', filterCatchedPokemons);
+        setFilterCatchedPokemonss(catchedPokemons)
         
 // eslint-disable-next-line react-hooks/exhaustive-deps
     })
@@ -31,9 +34,8 @@ const PokemonCatchList = (params) => {
             <div className="pokemon-catch-lists">
                 <ul className="pokemon-catch-list-ul">
                     {
-                        // filterCatchedPokemons.length >=1  ?
-                        resultCatchedPokemonSearch  ?
-                        filterCatchedPokemons.map( (pokemon, i) => 
+                        filterCatchedPokemonss.length >=1  ?
+                        filterCatchedPokemonss.map( (pokemon, i) => 
                         <li key={i} 
                         onClick={() => openInformationPokemon(pokemon)}
                         >{pokemon.name}</li> 

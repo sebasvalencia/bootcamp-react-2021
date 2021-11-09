@@ -1,57 +1,60 @@
-
-import { useState } from 'react';
+import { useState } from "react";
 import { useContext } from "react";
 import "./pokemonCatchSearch.scss";
-import PokemonContextActions from '../../context/pokemonContext/actions';
+import PokemonContextActions from "../../context/pokemonContext/actions";
 import { PokemonContext } from "../../context/pokemonContext/context";
 
 const PokemonCatchSearch = () => {
+  const {
+    dispatch,
+    state: { catchedPokemons },
+  } = useContext(PokemonContext);
+  const [fakeCatchPokemons, setFakeCatchPokemons] = useState(catchedPokemons);
 
-    const {dispatch, state: {catchedPokemons}} = useContext(PokemonContext);
+  const [value, setValue] = useState("");
 
-    const [value, setValue] = useState('');
+  const filter = (e) => {
+    const keyword = e.target.value;
 
-    const filter = (e) => {
-        const keyword = e.target.value;
-    
-        if (keyword !== '') {
-          const results = catchedPokemons.filter((user) => {
-            return user.name.toLowerCase().startsWith(keyword.toLowerCase());
-          });
+    if (keyword !== "") {
+      const results = catchedPokemons.filter((user) => {
+        return user.name.toLowerCase().startsWith(keyword.toLowerCase());
+      });
 
-          console.log('res', results);
+      console.log("res", results);
 
-          dispatch({
-              type: PokemonContextActions.setResultCatchedPokemonSearch,
-              results: false
-          })
-        } else {
-            console.log('else', catchedPokemons);
-          dispatch({
-            type: PokemonContextActions.setOrderByNameCatchedPokemon,
-            results: catchedPokemons
-        })
-        dispatch({
-          type: PokemonContextActions.setResultCatchedPokemonSearch,
-          results: true
-      })
-        }    
-        setValue(keyword);
+      dispatch({
+        type: PokemonContextActions.setResultCatchedPokemonSearch,
+        results: false,
+      });
+      dispatch({
+        type: PokemonContextActions.setCatchFilterPokemons,
+        results: results,
+      });
+    } else {
+      console.log("else", catchedPokemons);
+      dispatch({
+        type: PokemonContextActions.setCatchFilterPokemons,
+        results: fakeCatchPokemons,
+      });
+      dispatch({
+        type: PokemonContextActions.setResultCatchedPokemonSearch,
+        results: true,
+      });
     }
+    setValue(keyword);
+  };
 
-    return (
-        <>
-        <input
+  return (
+    <>
+      <input
         type="search"
         value={value}
         onChange={filter}
         className="pokemon-catch-input-search"
       />
-        </>
-    )
-
-
-
-}
+    </>
+  );
+};
 
 export default PokemonCatchSearch;
