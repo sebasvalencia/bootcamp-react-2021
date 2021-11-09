@@ -1,5 +1,4 @@
 import PokemonContextActions from "./actions";
-import _ from "lodash";
 
 const pokemonReducer = (state, action) => {
   switch (action.type) {
