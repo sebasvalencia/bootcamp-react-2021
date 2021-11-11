@@ -8,7 +8,7 @@ const PokemonCatchProvider = ( {children} ) => {
     const [state, dispatch] = useReducer(pokemonCatchReducer, initialState);
 
 
-    console.log('state, dispatch', children);
+    // console.log('state, dispatch', children);
 
     return (
         // state, Modify

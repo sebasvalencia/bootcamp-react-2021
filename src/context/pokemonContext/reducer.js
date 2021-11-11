@@ -23,6 +23,7 @@ const pokemonReducer = (state, action) => {
         catchedPokemons: [...state.catchedPokemons, action.results],
       };
     case PokemonContextActions.setSelectedCatchPokemon:
+      console.log('action setSelectedCatchPokemon:', action);
       return {
         ...state,
         selectedCatchPokemon: action.results,
@@ -33,17 +34,18 @@ const pokemonReducer = (state, action) => {
         catchedPokemons: [...action.results]
       }
     case PokemonContextActions.setCatchFilterPokemons:
-      console.log('action', action);
+      // console.log('action setCatchFilterPokemons:', action);
       return {
         ...state,
         catchedPokemons: [...action.results],
       };
-    case PokemonContextActions.setResultCatchedPokemonSearch:
-      return {
-        ...state,
-        resultCatchedPokemonSearch: action.results
-      }
-    case PokemonContextActions.releaseCatchPokemon:
+      case PokemonContextActions.setResultCatchedPokemonSearch:
+        return {
+          ...state,
+          resultCatchedPokemonSearch: action.results
+        }
+        case PokemonContextActions.releaseCatchPokemon:
+      console.log('action releaseCatchPokemon:', action);
       return {
         ...state,
         catchedPokemons: [

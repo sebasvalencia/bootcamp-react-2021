@@ -10,9 +10,9 @@ const PokemonCatchList = (params) => {
     const [pokemonName, setPokemonName] = useState('');
     const [filterCatchedPokemonss, setFilterCatchedPokemonss] = useState([]);
         
-    console.log('resultCatchedPokemonSearch', resultCatchedPokemonSearch);
-    console.log('catchedPokemons', catchedPokemons);
-    console.log('filterCatchedPokemons', filterCatchedPokemons);
+    // console.log('resultCatchedPokemonSearch', resultCatchedPokemonSearch);
+    // console.log('catchedPokemons', catchedPokemons);
+    // console.log('filterCatchedPokemons', filterCatchedPokemons);
 
     useEffect( () => {
         

@@ -20,14 +20,14 @@ const PokemonSearch = () => {
         return user.name.toLowerCase().startsWith(keyword.toLowerCase());
       });
 
-      console.log("res", results);
+      // console.log("res", results);
 
       dispatch({
         type: PokemonContextActions.setFilterPokemons,
         results: results,
       });
     } else {
-      console.log("else", pokemons);
+      // console.log("else", pokemons);
       dispatch({
         type: PokemonContextActions.setFilterPokemons,
         results: pokemons,
