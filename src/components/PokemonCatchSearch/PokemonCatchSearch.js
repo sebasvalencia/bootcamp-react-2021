@@ -9,7 +9,7 @@ const PokemonCatchSearch = () => {
     dispatch,
     state: { catchedPokemons },
   } = useContext(PokemonContext);
-  const [fakeCatchPokemons, setFakeCatchPokemons] = useState(catchedPokemons);
+  const [fakeCatchPokemons] = useState(catchedPokemons);
 
   const [value, setValue] = useState("");
 
