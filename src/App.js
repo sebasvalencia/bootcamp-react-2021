@@ -8,24 +8,29 @@ import PokemonHome from "./components/PokemonHome/PokemonHome";
 
 import "./App.css";
 
+export const Routes = () => {
+  return (
+    <>
+      <Switch>
+        <PokemonProvider>
+          <Route exact path="/" component={PokemonHome}> 
+          </Route>
+          <Route exact path="/home"  component={PokemonHome}>
+          </Route>
+          <Route exact path="/catch" component={PokemonCatchHome}>
+          </Route>
+        </PokemonProvider>
+      </Switch>
+    </>
+  );
+};
+
 const App = () => {
   return (
     <>
-        <BrowserRouter>
-          <Switch>
-            <PokemonProvider>
-              <Route exact path="/">
-                <PokemonHome  />
-              </Route>
-              <Route exact path="/home">
-                <PokemonHome />
-              </Route>
-              <Route exact path="/catch">
-                <PokemonCatchHome />
-              </Route>
-            </PokemonProvider>
-          </Switch>
-        </BrowserRouter>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
     </>
   );
 };
