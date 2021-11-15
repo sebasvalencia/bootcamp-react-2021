@@ -21,8 +21,6 @@ const PokemonCatchSearch = () => {
         return user.name.toLowerCase().startsWith(keyword.toLowerCase());
       });
 
-      // console.log("res", results);
-
       dispatch({
         type: PokemonContextActions.setResultCatchedPokemonSearch,
         results: false,
@@ -32,7 +30,6 @@ const PokemonCatchSearch = () => {
         results: results,
       });
     } else {
-      // console.log("else", catchedPokemons);
       dispatch({
         type: PokemonContextActions.setCatchFilterPokemons,
         results: fakeCatchPokemons,

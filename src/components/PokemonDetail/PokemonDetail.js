@@ -49,7 +49,6 @@ const PokemonDetail = (params) => {
   const handleOpenModal = () => setModalOnOff(!modalOnOff);
 
   const catchPokemon = () => {
-    // console.log("catchPokemon PokemonDetail", selectedPokemon);
     dispatch({
       type: PokemonContextActions.catchPokemons,
       results: selectedPokemon,

@@ -24,7 +24,6 @@ const PokemonCatchDetail = (params) => {
     state: { selectedCatchPokemon, catchedPokemons },
   } = useContext(PokemonContext);
 
-  console.log('selectedCatchPokemon PokemonCatchDetail ------> : ', selectedCatchPokemon);
 
   useEffect(() => {
     try {
@@ -53,7 +52,6 @@ const PokemonCatchDetail = (params) => {
   const handleOpenModal = () => setModalOnOff(!modalOnOff);
 
   const releasePokemon = () => {
-    console.log("catch PokemonCatchDetail releasePokemon: ", selectedCatchPokemon);
     setName("")
     setImage("");
     setAbilities([]);
