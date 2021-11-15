@@ -98,7 +98,7 @@ npm install sass
 ```sh
 npm i react-router
 ```
-## Install react router
+## Install lodash
 ```sh
 npm i lodash
 ```
