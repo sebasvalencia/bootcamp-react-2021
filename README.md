@@ -21,11 +21,11 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ## Images
 
-![1](Screenshot/1.PNG)
-![2](Screenshot/2.PNG)
-![3](Screenshot/3.PNG)
-![4](Screenshot/4.PNG)
-![5](Screenshot/5.PNG)
+![1](src/Screenshot/1.PNG)
+![2](src/Screenshot/2.PNG)
+![3](src/Screenshot/3.PNG)
+![4](src/Screenshot/4.PNG)
+![5](src/Screenshot/5.PNG)
 
 
 
