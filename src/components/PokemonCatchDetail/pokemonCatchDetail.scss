@@ -1,18 +1,16 @@
 .container-catch-detail {
-  border: 1px solid magenta;
-  //width: -webkit-fill-available;
+  border: 1px solid aliceblue;
   background-color: aliceblue;
   border-radius: 15px;
   margin-right: 22px;
   margin-left: 22px;
   margin-top: 25px;
-  //height: 95%;
   padding-top: 20px;
 }
 
 .pokemon-catch-detail-header {
   height: 50px;
-  width: 267px;
+  width: 357px;
   margin-top: 20px;
   margin-left: 120px;
   margin-bottom: 20px;
@@ -40,7 +38,7 @@
 
 .pokemon-catch-detail-name {
   text-align: center;
-  width: 100px;
+  //width: 100px;
   float: left;
   margin-top: 0;
   margin-bottom: 0;
@@ -54,10 +52,6 @@
 }
 
 .pokemon-catch-detail-container-content {
-  // width: 100%;
-  // height: 86%;
-  // display: flex;
-  // margin-bottom: 15px;
   margin-bottom: 32px;
 }
 

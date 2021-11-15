@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "./pokemonModalDetail.scss";
 import Catch from "../../Icons/Catch.png";
 import Release from "../../Icons/Release.png";
@@ -12,7 +12,12 @@ const PokemonModalDetail = ({
   abilities,
   pokemon,
   isCatchPage,
+  release,
 }) => {
+  
+  const [name2, setName] = useState(name);
+
+  console.log('name2',name2);
 
   const { dispatch } = useContext(PokemonContext);
 
@@ -24,9 +29,15 @@ const PokemonModalDetail = ({
   };
 
   const releasePokemon = () => {
+    console.log('releasePokemon', name2);
+    setName("")
     dispatch({
       type: PokemonContextActions.releaseCatchPokemon,
       results: pokemon,
+    });
+    dispatch({
+      type: PokemonContextActions.setSelectedCatchPokemon,
+      results: [],
     });
     handleClose()
   };
@@ -35,7 +46,7 @@ const PokemonModalDetail = ({
     <>
       <div className="pokemon-detail-modal-container">
         <div className="pokemon-detail-modal-header">
-          <div className="pokemon-detail-modal-title">{name}</div>
+          <div className="pokemon-detail-modal-title">{name2}</div>
         </div>
         
         <div className="pokemon-detail-modal-content">

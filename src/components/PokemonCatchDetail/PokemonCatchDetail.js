@@ -52,6 +52,7 @@ const PokemonCatchDetail = (params) => {
   const handleOpenModal = () => setModalOnOff(!modalOnOff);
 
   const releasePokemon = () => {
+    
     setName("")
     setImage("");
     setAbilities([]);
@@ -93,14 +94,7 @@ const PokemonCatchDetail = (params) => {
       {isLoading ? (
         <GlobalSpinner />
       ) : (
-        
-          // name === "" ? 
-          // <div className="not-found-data">
-          // no results found
-          // </div> 
-          
-          // :
-        
+
         <div className="container-catch-detail">
 
           <div className="pokemon-catch-detail-header" style={styles}>
